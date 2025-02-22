@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { Spotlight } from "@/components/ui/spotlight-new";
+import { HoverBorderGradientDemo } from "@/components/mainButton";
 import Image from "next/image";
 
 export function SpotlightNewDemo() {
@@ -25,13 +26,9 @@ export function SpotlightNewDemo() {
           Products, Brand and <br className="hidden md:block" />
           Experience.
         </h1>
-        {/* Uncomment and adjust if you want a subtitle or additional text */}
-        
-        {/* <p className="mt-4 font-normal text-base sm:text-lg text-neutral-300 max-w-lg text-center mx-auto">
-          A subtle yet effective spotlight effect, because the previous version
-          is used a bit too much these days.
-        </p> */}
-       
+        <div className="text-center text-neutral-200">
+          <HoverBorderGradientDemo />
+        </div>
       </div>
     </div>
   );

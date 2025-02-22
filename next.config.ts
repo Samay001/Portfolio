@@ -19,6 +19,22 @@ const nextConfig: NextConfig = {
         hostname: 'cdn.pixabay.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'media.licdn.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'private-user-images.githubusercontent.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+        pathname: '/**',
+      },
+
     ],
     
   },

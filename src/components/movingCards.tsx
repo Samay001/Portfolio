@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
 
 export function InfiniteMovingCardsDemo() {
@@ -10,42 +10,54 @@ export function InfiniteMovingCardsDemo() {
         <h1 className="text-white text-8xl font-bold text-center">Skills</h1>
       </div>
       <InfiniteMovingCards
-        items={testimonials}
+        items={skills}
         direction="right"
         speed="slow"
+        pauseOnHover={true}
       />
     </div>
   );
 }
 
-const testimonials = [
+const skills = [
   {
-    quote:
-      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
-    name: "Charles Dickens",
-    title: "A Tale of Two Cities",
+    image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+    name: "JavaScript",
+    title: "Created by Brendan Eich",
   },
   {
-    quote:
-      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-    name: "William Shakespeare",
-    title: "Hamlet",
+    image: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
+    name: "Node.js",
+    title: "Created by Ryan Dahl",
   },
   {
-    quote: "All that we see or seem is but a dream within a dream.",
-    name: "Edgar Allan Poe",
-    title: "A Dream Within a Dream",
+    image: "https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png",
+    name: "Express.js",
+    title: "Created by TJ Holowaychuk",
   },
   {
-    quote:
-      "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-    name: "Jane Austen",
-    title: "Pride and Prejudice",
+    image: "https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg",
+    name: "C++",
+    title: "Created by Bjarne Stroustrup",
   },
   {
-    quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
+    image: "https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg",
+    name: "Java",
+    title: "Created by James Gosling",
+  },
+  {
+    image: "https://upload.wikimedia.org/wikipedia/commons/7/79/Spring_Boot.svg",
+    name: "Spring Boot",
+    title: "Created by Pivotal Software",
+  },
+  {
+    image: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg",
+    name: "Docker",
+    title: "Created by Solomon Hykes",
+  },
+  {
+    image: "https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg",
+    name: "Kubernetes",
+    title: "Created by Google",
   },
 ];

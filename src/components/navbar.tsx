@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
+import { Menu, MenuItem } from "./ui/navbar-menu";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
-import { Moon, Sun } from "lucide-react"; 
+import { Moon, Sun } from "lucide-react";
+import Link from "next/link";
 
 export function NavbarDemo() {
   return (
@@ -24,24 +24,24 @@ function Navbar({ className }: { className?: string }) {
 
   return (
     <div
-      className={cn(
-        "fixed top-10 inset-x-0 max-w-2xl mx-auto z-50",
-        className
-      )}
+      className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
     >
       <Menu setActive={setActive}>
         <div className="flex items-center justify-between w-full">
           <div className="flex items-center space-x-4">
-            {/* <div className="w-12 h-12 rounded-full border border-transparent dark:bg-black dark:border-white/[0.2] flex items-center justify-center overflow-hidden">
-              <Image src="/logo.jpg" alt="Logo" width={40} height={40} />
-            </div> */}
-            <p className="font-semibold">Samay Rathod</p>
+            <p className="font-semibold text-white">Samay Rathod</p>
           </div>
 
           <div className="flex items-center space-x-6">
-            <MenuItem setActive={setActive} active={active} item="About" />
-            <MenuItem setActive={setActive} active={active} item="Skills" />
-            <MenuItem setActive={setActive} active={active} item="Projects" />
+            <Link href="/">
+              <MenuItem setActive={setActive} active={active} item="About" />
+            </Link>
+            <Link href="/">
+              <MenuItem setActive={setActive} active={active} item="Skills" />
+            </Link>
+            <Link href="/">
+              <MenuItem setActive={setActive} active={active} item="Projects" />
+            </Link>
             <button
               onClick={toggleDarkMode}
               className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors border-transparent dark:bg-black dark:border-white/[0.2]"
