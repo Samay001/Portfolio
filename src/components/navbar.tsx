@@ -42,12 +42,12 @@ function Navbar({ className }: { className?: string }) {
             <Link href="/">
               <MenuItem setActive={setActive} active={active} item="Projects" />
             </Link>
-            <button
+            {/* <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors border-transparent dark:bg-black dark:border-white/[0.2]"
+              className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors border-transparent dark:bg-black dark:border-white/[0.2] text-white"
             >
               {darkMode ? <Moon size={20} /> : <Sun size={20} />}
-            </button>
+            </button> */}
           </div>
         </div>
       </Menu>
