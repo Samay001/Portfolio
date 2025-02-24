@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Bot, MessageCircle } from "lucide-react";
 import ContactForm from "@/components/contactForm";
-import AIChatBot from "@/components/chatBot";
+import ChatBotUi from "@/components/chatBotUi";
 
 export default function FixedIcons() {
   const [openForm, setOpenForm] = useState<string | null>(null);
@@ -28,7 +28,7 @@ export default function FixedIcons() {
         </div>
         {openForm === "message" && (
           <div className="absolute bottom-12 right-0 w-72">
-            <AIChatBot />
+            <ChatBotUi />
           </div>
         )}
       </div>
