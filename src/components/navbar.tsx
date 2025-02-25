@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { Menu, MenuItem } from "./ui/navbar-menu";
 import { cn } from "@/lib/utils";
-import { Moon, Sun } from "lucide-react";
 import Link from "next/link";
 
 export function NavbarDemo() {
@@ -15,12 +14,6 @@ export function NavbarDemo() {
 
 function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
-  const [darkMode, setDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    document.documentElement.classList.toggle("dark");
-  };
 
   return (
     <div
@@ -33,21 +26,15 @@ function Navbar({ className }: { className?: string }) {
           </div>
 
           <div className="flex items-center space-x-6">
-            <Link href="/">
+            <Link href="#about-section">
               <MenuItem setActive={setActive} active={active} item="About" />
             </Link>
-            <Link href="/">
-              <MenuItem setActive={setActive} active={active} item="Skills" />
-            </Link>
-            <Link href="/projects">
+            <Link href="#project-section">
               <MenuItem setActive={setActive} active={active} item="Projects" />
             </Link>
-            {/* <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors border-transparent dark:bg-black dark:border-white/[0.2] text-white"
-            >
-              {darkMode ? <Moon size={20} /> : <Sun size={20} />}
-            </button> */}
+            <Link href="#skills-section">
+              <MenuItem setActive={setActive} active={active} item="Skills" />
+            </Link>
           </div>
         </div>
       </Menu>

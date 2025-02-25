@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import useChatWithGemini from '@/hooks/use-chatWithGemini';
 
 // Types
 interface Message {
@@ -12,18 +11,70 @@ interface Message {
 const ChatBot: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [input, setInput] = useState<string>('');
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      id: '1',
+      content: "Hi there! I'm your Samay's assistant.",
+      sender: 'bot',
+      timestamp: new Date()
+    }
+  ]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  const { 
-    messages, 
-    isLoading, 
-    sendMessage
-  } = useChatWithGemini();
 
   // Auto-scroll to the bottom of messages
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
+
+  // Add a message to the chat
+  const addMessage = (content: string, sender: 'user' | 'bot') => {
+    const newMessage: Message = {
+      id: Date.now().toString(),
+      content,
+      sender,
+      timestamp: new Date()
+    };
+    
+    setMessages(prev => [...prev, newMessage]);
+    return newMessage;
+  };
+
+  // Send message to API
+  const sendMessage = async (userInput: string) => {
+    if (!userInput.trim()) return;
+    
+    // Add user message
+    addMessage(userInput, 'user');
+    setIsLoading(true);
+    
+    try {
+      // Call the API endpoint
+      const response = await fetch('/api/chatbot', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: userInput }),
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        // Add the bot's response
+        addMessage(data.message.content, 'bot');
+      } else {
+        // Handle error
+        console.error('API error:', data.error);
+        addMessage('Sorry, I encountered an error. Please try again.', 'bot');
+      }
+    } catch (err) {
+      console.error('Error sending message:', err);
+      addMessage('Sorry, I couldn\'t connect to the server. Please try again.', 'bot');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   // Handle form submission
   const handleSubmit = (e: React.FormEvent) => {
@@ -35,7 +86,7 @@ const ChatBot: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-5 right-5 z-50">
+    <div className="fixed bottom-5 right-5 z-100" style={{ zIndex: 3 }}>
       {/* Chat Button */}
       <button 
         onClick={() => setIsOpen(!isOpen)}
@@ -61,7 +112,7 @@ const ChatBot: React.FC = () => {
           <div className="p-3 bg-gray-800 border-b border-gray-700 flex justify-between items-center">
             <div className="flex items-center">
               <div className="w-2 h-2 rounded-full bg-green-400 mr-2"></div>
-              <h3 className="text-white font-medium">Portfolio AI Assistant</h3>
+              <h3 className="text-white font-medium">Samay's Assistant</h3>
             </div>
             <button 
               onClick={() => setIsOpen(false)}

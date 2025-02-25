@@ -3,10 +3,15 @@ import React from "react";
 import { Spotlight } from "@/components/ui/spotlight-new";
 import { HoverBorderGradientDemo } from "@/components/mainButton";
 import Image from "next/image";
+import Link from "next/link";
 
 export function SpotlightNewDemo() {
   return (
-    <div className="min-h-[100vh] w-full rounded-md flex flex-col md:flex-row items-center justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
+    <div
+      id="home-section"
+      className="min-h-[100vh] w-full rounded-md flex flex-col md:flex-row items-center justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden"
+      style={{ zIndex: 1 }} 
+    >
       {/* Spotlight background effect */}
       <Spotlight />
 
@@ -26,8 +31,14 @@ export function SpotlightNewDemo() {
           Products, Brand and <br className="hidden md:block" />
           Experience.
         </h1>
-        <div className="text-center text-neutral-200">
-          <HoverBorderGradientDemo />
+
+        {/* Button placed below text */}
+        <div className="mt-6">
+          <Link href="#about-section">
+            <div className="text-center text-neutral-200">
+              <HoverBorderGradientDemo />
+            </div>
+          </Link>
         </div>
       </div>
     </div>

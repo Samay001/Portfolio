@@ -2,11 +2,11 @@
 import React from "react";
 import { NavbarDemo } from "@/components/navbar";
 import { SpotlightNewDemo } from "@/components/spotlight";
-import ProjectsSection from "@/app/projects/page";
+import ProjectsSection from "@/components/projects";
 import {StickyScrollRevealDemo} from "@/components/stickyScroll";
-import {CardHoverEffectDemo} from "@/components/cards";
 import {FloatingDockDemo} from "@/components/dock";
 import FixedIcons from "@/components/fixedIcons";
+import {TechStackShowcase} from "@/components/hoverCard";
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
       <SpotlightNewDemo />
       <StickyScrollRevealDemo />
       <ProjectsSection />
-      <CardHoverEffectDemo />
+      <TechStackShowcase />
       <FixedIcons />
       <FloatingDockDemo />
     </div>

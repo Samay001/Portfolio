@@ -19,6 +19,7 @@ export const FloatingDock = ({
   className?: string;
 }) => {
   let mouseX = useMotionValue(Infinity);
+
   return (
     <motion.div
       onMouseMove={(e) => mouseX.set(e.pageX)}
@@ -50,7 +51,6 @@ function IconContainer({
 
   let distance = useTransform(mouseX, (val) => {
     let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
-
     return val - bounds.x - bounds.width / 2;
   });
 
@@ -58,11 +58,7 @@ function IconContainer({
   let heightTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
 
   let widthTransformIcon = useTransform(distance, [-150, 0, 150], [20, 40, 20]);
-  let heightTransformIcon = useTransform(
-    distance,
-    [-150, 0, 150],
-    [20, 40, 20]
-  );
+  let heightTransformIcon = useTransform(distance, [-150, 0, 150], [20, 40, 20]);
 
   let width = useSpring(widthTransform, {
     mass: 0.1,
@@ -89,7 +85,12 @@ function IconContainer({
   const [hovered, setHovered] = useState(false);
 
   return (
-    <Link href={href} target="_blank">
+    <Link
+      href={href}
+      target={title !== "Home" ? "_blank" : undefined} // Open in new tab if not "Home"
+      rel={title !== "Home" ? "noopener noreferrer" : undefined} // Add rel for security
+      aria-label={title} // Accessibility
+    >
       <motion.div
         ref={ref}
         style={{ width, height }}

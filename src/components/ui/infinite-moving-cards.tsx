@@ -85,9 +85,9 @@ export const InfiniteMovingCards: React.FC<InfiniteMovingCardsProps> = ({
             className="w-[350px] max-w-full relative rounded-2xl border border-gray-700 bg-gradient-to-b from-gray-800 to-gray-900 p-6 flex-shrink-0 flex flex-col items-center"
           >
             {/* Image container with uniform size */}
-            <div className="w-24 h-24 flex items-center justify-center overflow-hidden rounded-lg">
+            {/* <div className="w-24 h-24 flex items-center justify-center overflow-hidden rounded-lg"> */}
               <img src={item.image} alt={item.name} className="w-full h-full object-contain" />
-            </div>
+            {/* </div> */}
 
             {/* Text Content */}
             <div className="relative z-20 mt-4 flex flex-col items-center text-center">

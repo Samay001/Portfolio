@@ -1,82 +1,68 @@
 {
-  "about": "I'm a Full Stack Developer specializing in Next.js, TypeScript, and modern web technologies. I create responsive, high-performance web applications with clean, maintainable code. With a strong foundation in both frontend and backend development, I enjoy tackling complex problems and delivering elegant solutions.",
+  "about": "Samay is a passionate full-stack developer, set to graduate in 2025, and an immediate joiner. He has a strong foundation in web development, cloud computing, and problem-solving, always eager to learn and innovate.",
   
   "skills": [
     "React.js", 
     "Next.js", 
     "TypeScript", 
-    "JavaScript", 
     "Node.js", 
     "Express", 
     "MongoDB", 
-    "PostgreSQL", 
-    "GraphQL", 
+    "Mysql", 
+    "Kubernetes", 
     "Tailwind CSS", 
     "Responsive Design", 
     "RESTful APIs",
     "Git",
-    "Docker",
-    "CI/CD"
+    "Docker"
   ],
   
   "projects": [
     {
-      "title": "E-commerce Platform",
-      "description": "A full-featured e-commerce platform with product catalog, cart, checkout, and user authentication. Includes admin dashboard for inventory management.",
-      "technologies": ["Next.js", "TypeScript", "MongoDB", "Stripe API", "Tailwind CSS"],
-      "link": "https://github.com/yourusername/ecommerce-platform"
+      "title": "Urban Snitch",
+      "description": "A full-stack web platform focused on customer safety, featuring secure password hashing and a seamless payment gateway for transactions.",
+      "technologies": ["React.js", "JavaScript", "MongoDB", "Stripe API", "Tailwind CSS"],
+      "link": "https://github.com/Samay001/urbansnitch"
     },
     {
-      "title": "Task Management App",
-      "description": "A Kanban-style task management application with drag-and-drop functionality, task assignment, deadlines, and progress tracking.",
-      "technologies": ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Socket.io"],
-      "link": "https://github.com/yourusername/task-management"
+      "title": "Load Balancer with Kubernetes & Docker",
+      "description": "A project demonstrating containerized load balancing using Kubernetes and Docker, enabling automatic scaling and high availability across multiple server instances.",
+      "technologies": ["React.js", "JavaScript", "Node.js", "Express", "Docker", "Kubernetes"],
+      "link": "https://github.com/Samay001/conscious-chemist"
     },
     {
-      "title": "Weather Dashboard",
-      "description": "Real-time weather application with 7-day forecast, location search, and interactive maps. Uses OpenWeatherMap API for data.",
-      "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Chart.js", "Leaflet"],
-      "link": "https://github.com/yourusername/weather-dashboard"
+      "title": "Conscious Chemist",
+      "description": "A skincare e-commerce website built with ReactJS, offering a responsive and visually appealing interface for browsing and purchasing skincare products.",
+      "technologies": ["React.js", "JavaScript", "Tailwind CSS"],
+      "link": "https://github.com/Samay001/Load-Balancer-Round-Robin-Algorithm"
     }
   ],
   
   "experience": [
     {
-      "company": "Tech Innovations Inc.",
-      "role": "Senior Frontend Developer",
-      "duration": "2022-Present",
+      "company": "Boost Star Expert.",
+      "role": "Website Developer",
+      "duration": "June-2024-Aug-2024",
       "description": "Lead developer for the company's client-facing web applications. Implemented modern React patterns and optimized performance across the platform."
-    },
-    {
-      "company": "Digital Solutions Ltd.",
-      "role": "Full Stack Developer",
-      "duration": "2020-2022",
-      "description": "Developed and maintained multiple web applications using React, Node.js, and MongoDB. Improved application performance by 40%."
-    },
-    {
-      "company": "Web Crafters Studio",
-      "role": "Junior Developer",
-      "duration": "2018-2020",
-      "description": "Collaborated on frontend development tasks and contributed to various client projects. Gained experience with React and modern JavaScript."
     }
   ],
   
   "education": [
     {
-      "institution": "University of Technology",
-      "degree": "B.Sc. Computer Science",
-      "year": "2018"
+      "institution": "Chandigarh University",
+      "degree": "B.E in Computer Science",
+      "year": "2021-2025"
     },
     {
-      "institution": "Online Learning Platform",
-      "degree": "Full Stack Web Development Certification",
-      "year": "2019"
+      "institution": "Ryan International School",
+      "degree": "Mathematics",
+      "year": "2020-2021"
     }
   ],
   
   "contact": {
-    "email": "yourname@example.com",
-    "linkedin": "https://linkedin.com/in/yourprofile",
-    "github": "https://github.com/yourusername"
+    "email": "samayrathod1@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/samayrathod/",
+    "github": "https://github.com/Samay001"
   }
 }

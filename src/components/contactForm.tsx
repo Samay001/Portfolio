@@ -102,8 +102,7 @@ export default function ContactForm() {
           {/* Contact Form Header */}
           <div className="p-3 bg-gray-800 border-b border-gray-700 flex justify-between items-center">
             <div className="flex items-center">
-              <div className="w-2 h-2 rounded-full bg-green-400 mr-2"></div>
-              <h3 className="text-white font-medium">Contact Us</h3>
+              <h3 className="text-white font-medium">Let's Connect</h3>
             </div>
             <button
               onClick={() => setIsOpen(false)}

@@ -4,7 +4,6 @@ import {
   IconBrandGithub,
   IconBrandLinkedin,
   IconHome,
-  IconMail,
   IconFileText,
 } from "@tabler/icons-react";
 
@@ -15,7 +14,7 @@ export function FloatingDockDemo() {
       icon: (
         <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "#home-section",
     },
     {
       title: "GitHub",
@@ -41,7 +40,7 @@ export function FloatingDockDemo() {
   ];
 
   return (
-    <div className="flex items-center justify-center h-[35rem] w-full mb-3">
+    <div className="flex items-center justify-center h-[1rem] w-full mb-3"style={{ zIndex: 2}}>
       <FloatingDock items={links} />
     </div>
   );

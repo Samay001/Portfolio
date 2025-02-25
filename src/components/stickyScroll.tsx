@@ -9,7 +9,7 @@ const content = [
     subHeading: "Boost Star Experts",
     timeFrame: "Jun 2024 - Aug 2024",
     description:
-      "Work together in real time with your team, clients, and stakeholders. Collaborate on documents, share ideas, and make decisions quickly. With our platform, you can streamline your workflow and increase productivity.",
+      "Recognized as a top-performing intern at Boost Star Expert, where I contributed to web development and SEO optimization, improving website performance and user engagement.",
     content: (
       <div className="h-full w-full flex items-center justify-center text-white">
         <Image
@@ -27,7 +27,7 @@ const content = [
     subHeading: "Stay updated instantly",
     timeFrame: "Jul 2024 - Oct 2024",
     description:
-      "See changes as they happen. With our platform, you can track every modification in real time. No more confusion about the latest version of your project. Say goodbye to the chaos of version control and embrace the simplicity of real-time updates.",
+      " Qualified for the final rounds of multiple hackathons, building innovative solutions under tight deadlines and high-pressure environments.",
     content: (
       <div className="h-full w-full flex items-center justify-center text-white">
         <Image
@@ -59,11 +59,11 @@ const content = [
     ),
   },
   {
-    title: "Linux",
+    title: "Linux & Open Source",
     subHeading: "Never run out of ideas",
     timeFrame: "Jan 2025 - Apr 2025",
     description:
-      "Keep your content fresh and up-to-date with our smart suggestions and seamless workflow. Whether it's documentation, blogs, or creative writing, our platform ensures you always have something valuable to share.",
+      " Passionate about Linux and open-source technologies, always exploring new tools, optimizations, and ways to enhance development workflows.",
     content: (
       <div className="h-full w-full flex items-center justify-center text-white">
         <Image
@@ -82,11 +82,12 @@ export function StickyScrollRevealDemo() {
   const [activeBgColor, setActiveBgColor] = useState("transparent");
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: activeBgColor }}>
+    <div
+      id="about-section"
+      className="min-h-screen"
+      style={{ backgroundColor: activeBgColor }}>
       <div className="w-full mx-auto mb-10 mt-8">
-        <h1 className="text-white text-8xl mb-14 font-bold text-center">
-          About Me
-        </h1>
+        <h1 className="text-4xl md:text-6xl sm:text-2xl font-bold text-white text-center">About Me</h1>
       </div>
       <StickyScroll content={content} onActiveColorChange={setActiveBgColor} />
     </div>

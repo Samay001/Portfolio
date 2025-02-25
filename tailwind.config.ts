@@ -1,6 +1,4 @@
 import type { Config } from "tailwindcss";
-import defaultTheme from "tailwindcss/defaultTheme";
-import colors from "tailwindcss/colors";
 
 // A custom function to flatten a nested object (colors in this case)
 function flattenColors(obj: Record<string, any>, prefix = ""): Record<string, string> {
