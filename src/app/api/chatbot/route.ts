@@ -3,17 +3,17 @@ import axios from 'axios';
 import portfolioData from '@/lib/knowledge.json';
 
 // Types
-interface Message {
-  id: string;
-  content: string;
-  sender: 'user' | 'bot';
-  timestamp: Date;
-}
+// interface Message {
+//   id: string;
+//   content: string;
+//   sender: 'user' | 'bot';
+//   timestamp: Date;
+// }
 
-interface ChatResponse {
-  message: Message;
-  error?: string;
-}
+// interface ChatResponse {
+//   message: Message;
+//   error?: string;
+// }
 
 interface PortfolioData {
   about?: string;
