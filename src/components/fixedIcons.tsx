@@ -11,26 +11,11 @@ export default function FixedIcons() {
     <div className="fixed bottom-0 left-0 right-0 flex justify-between items-center p-4">
       {/* Contact Form on Left-Bottom */}
       <div className="relative">
-        <div onClick={() => setOpenForm(openForm === "bot" ? null : "bot")} className="cursor-pointer">
-          <MessageCircle className="h-6 w-6 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors" />
-        </div>
-        {openForm === "bot" && (
-          <div className="absolute bottom-12 left-0 w-72">
-            <ContactForm />
-          </div>
-        )}
+        <ContactForm />
       </div>
-
       {/* AI Chatbot on Right-Bottom */}
       <div className="relative">
-        <div onClick={() => setOpenForm(openForm === "message" ? null : "message")} className="cursor-pointer">
-          <Bot className="h-6 w-6 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors" />
-        </div>
-        {openForm === "message" && (
-          <div className="absolute bottom-12 right-0 w-72">
-            <ChatBotUi />
-          </div>
-        )}
+        <ChatBotUi />
       </div>
     </div>
   );

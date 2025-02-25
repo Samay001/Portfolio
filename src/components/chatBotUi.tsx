@@ -1,82 +1,141 @@
-import { useState, useRef, useEffect } from "react";
-import axios from "axios";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import React, { useState, useRef, useEffect } from 'react';
+import useChatWithGemini from '@/hooks/use-chatWithGemini';
 
-export default function ChatBotUi() {
-  const [query, setQuery] = useState("");
-  const [messages, setMessages] = useState<{ sender: string; text: string }[]>([]);
-  const [loading, setLoading] = useState(false);
-  const chatEndRef = useRef<HTMLDivElement>(null);
+// Types
+interface Message {
+  id: string;
+  content: string;
+  sender: 'user' | 'bot';
+  timestamp: Date;
+}
 
+const ChatBot: React.FC = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [input, setInput] = useState<string>('');
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const { 
+    messages, 
+    isLoading, 
+    sendMessage
+  } = useChatWithGemini();
+
+  // Auto-scroll to the bottom of messages
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const handleSendMessage = async () => {
-    if (!query.trim()) return;
+  // Handle form submission
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
     
-    const userMessage = { sender: "user", text: query };
-    setMessages((prev) => [...prev, userMessage]);
-    setQuery("");
-    setLoading(true);
-    
-    try {
-      const res = await axios.post("/api/chat", { message: query });
-      const botMessage = { sender: "bot", text: res.data.reply };
-      setMessages((prev) => [...prev, botMessage]);
-    } catch (error) {
-      console.error("Error fetching response:", error);
-      setMessages((prev) => [...prev, { sender: "bot", text: "Something went wrong. Please try again." }]);
-    }
-    
-    setLoading(false);
+    if (!input.trim()) return;
+    sendMessage(input);
+    setInput('');
   };
 
   return (
-    <div className="flex justify-center items-center p-1 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 w-full">
-      <Card className="w-full max-w-5xl h-[50vh] flex flex-col border-none shadow-2xl dark:shadow-none">
-        {/* Heading at the top */}
-        <CardHeader className="p-4 bg-blue-500 dark:bg-purple-600 text-white text-center text-xl font-bold rounded-t-lg">
-          AI Bot
-        </CardHeader>
-        <CardContent className="flex-1 overflow-auto p-6 bg-white dark:bg-gray-900">
-          {messages.map((msg, index) => (
-            <div 
-              key={index} 
-              className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"} mb-4`}
-            >
-              <div 
-                className={`p-3 rounded-lg max-w-[75%] transition-all duration-300 ease-in-out ${
-                  msg.sender === "user" 
-                    ? "bg-blue-500 text-white" 
-                    : "bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-                }`}
-              >
-                {msg.text}
-              </div>
+    <div className="fixed bottom-5 right-5 z-50">
+      {/* Chat Button */}
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-12 h-12 bg-gray-900 hover:bg-gray-800 text-white rounded-full flex items-center justify-center shadow-lg border border-gray-700 transition-all duration-300"
+        aria-label={isOpen ? "Close chat" : "Open chat"}
+      >
+        {isOpen ? (
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        ) : (
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+        )}
+      </button>
+      
+      {/* Chat Window */}
+      {isOpen && (
+        <div className="absolute bottom-16 right-0 w-[90vw] sm:w-96 h-[70vh] max-h-[80vh] bg-gray-900 rounded-lg shadow-xl border border-gray-700 flex flex-col overflow-hidden transition-all duration-300">
+          {/* Chat Header */}
+          <div className="p-3 bg-gray-800 border-b border-gray-700 flex justify-between items-center">
+            <div className="flex items-center">
+              <div className="w-2 h-2 rounded-full bg-green-400 mr-2"></div>
+              <h3 className="text-white font-medium">Portfolio AI Assistant</h3>
             </div>
-          ))}
-          <div ref={chatEndRef}></div>
-        </CardContent>
-        <div className="p-4 border-t bg-white dark:bg-gray-900 rounded-b-lg flex items-center gap-2">
-          <Input 
-            className="flex-1 border-gray-300 dark:border-gray-700 bg-transparent dark:bg-gray-800 dark:text-white" 
-            placeholder="Type your message..." 
-            value={query} 
-            onChange={(e) => setQuery(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
-          />
-          <Button 
-            onClick={handleSendMessage} 
-            disabled={loading}
-            className="bg-blue-500 hover:bg-blue-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white"
-          >
-            {loading ? "Thinking..." : "Send"}
-          </Button>
+            <button 
+              onClick={() => setIsOpen(false)}
+              className="text-gray-400 hover:text-gray-200"
+              aria-label="Close chat"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+          
+          {/* Messages Container */}
+          <div className="flex-1 p-4 overflow-y-auto bg-gray-900">
+            {messages.map((message) => (
+              <div 
+                key={message.id} 
+                className={`mb-4 flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+              >
+                <div 
+                  className={`max-w-3/4 p-3 rounded-lg ${
+                    message.sender === 'user' 
+                      ? 'bg-blue-600 text-white rounded-br-none' 
+                      : 'bg-gray-800 text-gray-100 rounded-bl-none'
+                  }`}
+                >
+                  {message.content}
+                </div>
+              </div>
+            ))}
+            {isLoading && (
+              <div className="flex justify-start mb-4">
+                <div className="bg-gray-800 text-white p-3 rounded-lg rounded-bl-none flex space-x-1">
+                  <span className="animate-bounce">●</span>
+                  <span className="animate-bounce" style={{ animationDelay: '0.2s' }}>●</span>
+                  <span className="animate-bounce" style={{ animationDelay: '0.4s' }}>●</span>
+                </div>
+              </div>
+            )}
+            <div ref={messagesEndRef} />
+          </div>
+          
+          {/* Input Form */}
+          <form onSubmit={handleSubmit} className="p-3 bg-gray-800 border-t border-gray-700">
+            <div className="flex rounded-lg overflow-hidden">
+              <input
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Ask me about the portfolio..."
+                className="flex-1 p-2 outline-none bg-gray-700 text-white placeholder-gray-400"
+                disabled={isLoading}
+              />
+              <button 
+                type="submit"
+                className={`px-2 py-2 transition-colors duration-300 text-white ${
+                  isLoading || !input.trim() 
+                    ? 'bg-blue-500 opacity-50 cursor-not-allowed' 
+                    : 'bg-blue-600 hover:bg-blue-700'
+                }`}
+                disabled={isLoading || !input.trim()}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </div>
+          </form>
         </div>
-      </Card>
+      )}
     </div>
   );
-}
+};
+
+export default ChatBot;

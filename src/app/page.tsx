@@ -2,7 +2,7 @@
 import React from "react";
 import { NavbarDemo } from "@/components/navbar";
 import { SpotlightNewDemo } from "@/components/spotlight";
-import {ProjectsSection} from "@/app/projects/page";
+import ProjectsSection from "@/app/projects/page";
 import {StickyScrollRevealDemo} from "@/components/stickyScroll";
 import {CardHoverEffectDemo} from "@/components/cards";
 import {FloatingDockDemo} from "@/components/dock";

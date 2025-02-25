@@ -1,98 +1,82 @@
 {
-    "name": "Samay Rathod",
-    "role": "Software Developer",
-    "education": {
-      "degree": "Bachelor of Engineering",
-      "graduationYear": 2025
-    },
-    "bio": "I am a passionate software developer with experience in full-stack web development. I have worked on projects using technologies like React.js, Node.js, and Kubernetes. I am enthusiastic about learning new technologies and building innovative solutions.",
-    
-    "skills": [
-      "JavaScript",
-      "TypeScript",
-      "React.js",
-      "Next.js",
-      "Node.js",
-      "Express.js",
-      "Docker",
-      "Kubernetes",
-      "Helm",
-      "SQL",
-      "MongoDB",
-      "Redis",
-      "Linux",
-      "Git",
-      "CI/CD"
-    ],
-    "experience": [
-      {
-        "company": "Boost Star Expert",
-        "role": "Website Developer Intern",
-        "achievements": [
-          "Top performer of the batch",
-          "Improved website SEO for better visibility"
-        ]
-      },
-      {
-        "company": "Multiple Hackathons",
-        "role": "Participant & Finalist",
-        "achievements": [
-          "Developed and presented innovative projects",
-          "Qualified for the final rounds"
-        ]
-      }
-    ],
-    "projects": [
-      {
-        "name": "Urban Snitch",
-        "description": "A full-stack website focused on customer safety, featuring password hashing and a seamless payment gateway."
-      },
-      {
-        "name": "Chrome Extension",
-        "description": "A productivity-focused Chrome extension published in the Chrome Web Store with over 50 users."
-      },
-      {
-        "name": "Cosmocloud Deploy",
-        "description": "A Kubernetes and Helm project for deploying frontend, backend, and Redis database services."
-      },
-      {
-        "name": "IRCTC CLI App",
-        "description": "A command-line-based railway booking system built using Java, JSON database, and JUnit testing."
-      },
-      {
-        "name": "Skincare Website",
-        "description": "A responsive skincare website built using ReactJS and CSS."
-      },
-      {
-        "name": "Restaurant Landing Page",
-        "description": "A visually appealing restaurant website designed with React and optimized for responsiveness."
-      }
-    ],
-    "publications": [
-      {
-        "title": "Frostbite Detection Using ML",
-        "description": "A research paper focused on machine learning techniques for detecting frostbite."
-      }
-    ],
-    "operatingSystems": ["Linux (Ubuntu, Arch)", "Windows"],
-    "achievements": [
-      "Top performer in a website development internship",
-      "Published a research paper on ML-based Frostbite Detection",
-      "Successfully deployed a Chrome Extension with 50+ users",
-      "Finalist in multiple hackathons",
-      "Built a Kubernetes project for managing deployments"
-    ],
-    "technologies": {
-      "frontend": ["React.js", "Next.js", "Tailwind CSS"],
-      "backend": ["Node.js", "Express.js"],
-      "databases": ["MongoDB", "Redis", "SQL"],
-      "devOps": ["Docker", "Kubernetes", "Helm"],
-      "testing": ["JUnit", "Postman"]
-    },
-    "contact": {
-      "email": "samayrathod1@gmail.com",
-      "phone": "+91 8839796443"
-    },
-    "notRelevantResponse": "This question does not pertain to my professional work. Please ask about my career, skills, or projects for relevant information."
-  }
+  "about": "I'm a Full Stack Developer specializing in Next.js, TypeScript, and modern web technologies. I create responsive, high-performance web applications with clean, maintainable code. With a strong foundation in both frontend and backend development, I enjoy tackling complex problems and delivering elegant solutions.",
   
+  "skills": [
+    "React.js", 
+    "Next.js", 
+    "TypeScript", 
+    "JavaScript", 
+    "Node.js", 
+    "Express", 
+    "MongoDB", 
+    "PostgreSQL", 
+    "GraphQL", 
+    "Tailwind CSS", 
+    "Responsive Design", 
+    "RESTful APIs",
+    "Git",
+    "Docker",
+    "CI/CD"
+  ],
+  
+  "projects": [
+    {
+      "title": "E-commerce Platform",
+      "description": "A full-featured e-commerce platform with product catalog, cart, checkout, and user authentication. Includes admin dashboard for inventory management.",
+      "technologies": ["Next.js", "TypeScript", "MongoDB", "Stripe API", "Tailwind CSS"],
+      "link": "https://github.com/yourusername/ecommerce-platform"
+    },
+    {
+      "title": "Task Management App",
+      "description": "A Kanban-style task management application with drag-and-drop functionality, task assignment, deadlines, and progress tracking.",
+      "technologies": ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Socket.io"],
+      "link": "https://github.com/yourusername/task-management"
+    },
+    {
+      "title": "Weather Dashboard",
+      "description": "Real-time weather application with 7-day forecast, location search, and interactive maps. Uses OpenWeatherMap API for data.",
+      "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Chart.js", "Leaflet"],
+      "link": "https://github.com/yourusername/weather-dashboard"
+    }
+  ],
+  
+  "experience": [
+    {
+      "company": "Tech Innovations Inc.",
+      "role": "Senior Frontend Developer",
+      "duration": "2022-Present",
+      "description": "Lead developer for the company's client-facing web applications. Implemented modern React patterns and optimized performance across the platform."
+    },
+    {
+      "company": "Digital Solutions Ltd.",
+      "role": "Full Stack Developer",
+      "duration": "2020-2022",
+      "description": "Developed and maintained multiple web applications using React, Node.js, and MongoDB. Improved application performance by 40%."
+    },
+    {
+      "company": "Web Crafters Studio",
+      "role": "Junior Developer",
+      "duration": "2018-2020",
+      "description": "Collaborated on frontend development tasks and contributed to various client projects. Gained experience with React and modern JavaScript."
+    }
+  ],
+  
+  "education": [
+    {
+      "institution": "University of Technology",
+      "degree": "B.Sc. Computer Science",
+      "year": "2018"
+    },
+    {
+      "institution": "Online Learning Platform",
+      "degree": "Full Stack Web Development Certification",
+      "year": "2019"
+    }
+  ],
+  
+  "contact": {
+    "email": "yourname@example.com",
+    "linkedin": "https://linkedin.com/in/yourprofile",
+    "github": "https://github.com/yourusername"
+  }
+}

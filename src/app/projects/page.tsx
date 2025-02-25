@@ -11,28 +11,30 @@ const projects: Project[] = [
   {
     name: "Project 1",
     description:
-      "This is a description of Project 1. It showcases my skills in XYZ and demonstrates my ability to solve complex problems This is a description of Project 1. It showcases my skills in XYZ and demonstrates my ability to solve complex problems. This is a description of Project 1. It showcases my skills in XYZ and demonstrates my ability to solve complex problems.This is a description of Project 1. It showcases my skills in XYZ and demonstrates my ability to solve complex problems.",
-    videoUrl: "/UrbanSnitch.mp4", 
+      "This is a description of Project 1. It showcases my skills in XYZ and demonstrates my ability to solve complex problems. This is a description of Project 1. It showcases my skills in XYZ and demonstrates my ability to solve complex problems. This is a description of Project 1. It showcases my skills in XYZ and demonstrates my ability to solve complex problems. This is a description of Project 1. It showcases my skills in XYZ and demonstrates my ability to solve complex problems.",
+    videoUrl: "/UrbanSnitch.mp4",
   },
   {
     name: "Project 2",
     description:
-      "This is a description of Project 1. It showcases my skills in XYZ and demonstrates my ability to solve complex problems This is a description of Project 1. It showcases my skills in XYZ and demonstrates my ability to solve complex problems. This is a description of Project 1. It showcases my skills in XYZ and demonstrates my ability to solve complex problems.This is a description of Project 1. It showcases my skills in XYZ and demonstrates my ability to solve complex problems.",
-    videoUrl: "/loadBalancer.mkv", 
+      "This is a description of Project 2. It showcases my skills in XYZ and demonstrates my ability to solve complex problems. This is a description of Project 2. It showcases my skills in XYZ and demonstrates my ability to solve complex problems. This is a description of Project 2. It showcases my skills in XYZ and demonstrates my ability to solve complex problems. This is a description of Project 2. It showcases my skills in XYZ and demonstrates my ability to solve complex problems.",
+    videoUrl: "/loadBalancer.mkv",
   },
   {
     name: "Project 3",
     description:
-      "This is a description of Project 1. It showcases my skills in XYZ and demonstrates my ability to solve complex problems This is a description of Project 1. It showcases my skills in XYZ and demonstrates my ability to solve complex problems. This is a description of Project 1. It showcases my skills in XYZ and demonstrates my ability to solve complex problems.This is a description of Project 1. It showcases my skills in XYZ and demonstrates my ability to solve complex problems.",
-    videoUrl: "/conscious-chemist.mp4", 
+      "This is a description of Project 3. It showcases my skills in XYZ and demonstrates my ability to solve complex problems. This is a description of Project 3. It showcases my skills in XYZ and demonstrates my ability to solve complex problems. This is a description of Project 3. It showcases my skills in XYZ and demonstrates my ability to solve complex problems. This is a description of Project 3. It showcases my skills in XYZ and demonstrates my ability to solve complex problems.",
+    videoUrl: "/conscious-chemist.mp4",
   },
 ];
 
-export const ProjectsSection = () => {
+export default function ProjectsSection() {
   return (
     <div className="min-h-screen flex flex-col mx-auto">
       <div className="w-full mx-auto mb-10 mt-8">
-        <h1 className="text-white text-8xl max-w-7xl mb-10 font-bold text-center">Projects</h1>
+        <h1 className="text-white text-8xl max-w-7xl mb-10 font-bold text-center">
+          Projects
+        </h1>
       </div>
 
       {/* Project List */}
@@ -67,4 +69,4 @@ export const ProjectsSection = () => {
       </div>
     </div>
   );
-};
+}
