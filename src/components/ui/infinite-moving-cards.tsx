@@ -24,7 +24,7 @@ export const InfiniteMovingCards: React.FC<InfiniteMovingCardsProps> = ({
 
   useEffect(() => {
     addAnimation();
-  }, []);
+  },);
 
   const [start, setStart] = useState(false);
 

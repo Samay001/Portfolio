@@ -1,4 +1,5 @@
 "use client";
+
 import { cn } from "@/lib/utils";
 import {
   AnimatePresence,
@@ -18,7 +19,7 @@ export const FloatingDock = ({
   items: { title: string; icon: React.ReactNode; href: string }[];
   className?: string;
 }) => {
-  let mouseX = useMotionValue(Infinity);
+  const mouseX = useMotionValue(Infinity);
 
   return (
     <motion.div
@@ -42,54 +43,35 @@ function IconContainer({
   icon,
   href,
 }: {
-  mouseX: MotionValue;
+  mouseX: MotionValue<number>;
   title: string;
   icon: React.ReactNode;
   href: string;
 }) {
-  let ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
+  const [hovered, setHovered] = useState(false);
 
-  let distance = useTransform(mouseX, (val) => {
-    let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
+  const distance = useTransform(mouseX, (val) => {
+    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
     return val - bounds.x - bounds.width / 2;
   });
 
-  let widthTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
-  let heightTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
+  const widthTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
+  const heightTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
+  const widthTransformIcon = useTransform(distance, [-150, 0, 150], [20, 40, 20]);
+  const heightTransformIcon = useTransform(distance, [-150, 0, 150], [20, 40, 20]);
 
-  let widthTransformIcon = useTransform(distance, [-150, 0, 150], [20, 40, 20]);
-  let heightTransformIcon = useTransform(distance, [-150, 0, 150], [20, 40, 20]);
-
-  let width = useSpring(widthTransform, {
-    mass: 0.1,
-    stiffness: 150,
-    damping: 12,
-  });
-  let height = useSpring(heightTransform, {
-    mass: 0.1,
-    stiffness: 150,
-    damping: 12,
-  });
-
-  let widthIcon = useSpring(widthTransformIcon, {
-    mass: 0.1,
-    stiffness: 150,
-    damping: 12,
-  });
-  let heightIcon = useSpring(heightTransformIcon, {
-    mass: 0.1,
-    stiffness: 150,
-    damping: 12,
-  });
-
-  const [hovered, setHovered] = useState(false);
+  const width = useSpring(widthTransform, { mass: 0.1, stiffness: 150, damping: 12 });
+  const height = useSpring(heightTransform, { mass: 0.1, stiffness: 150, damping: 12 });
+  const widthIcon = useSpring(widthTransformIcon, { mass: 0.1, stiffness: 150, damping: 12 });
+  const heightIcon = useSpring(heightTransformIcon, { mass: 0.1, stiffness: 150, damping: 12 });
 
   return (
     <Link
       href={href}
-      target={title !== "Home" ? "_blank" : undefined} // Open in new tab if not "Home"
-      rel={title !== "Home" ? "noopener noreferrer" : undefined} // Add rel for security
-      aria-label={title} // Accessibility
+      target={title !== "Home" ? "_blank" : undefined}
+      rel={title !== "Home" ? "noopener noreferrer" : undefined}
+      aria-label={title}
     >
       <motion.div
         ref={ref}
