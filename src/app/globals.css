@@ -6,6 +6,16 @@
   display: none;
 }
 
+@layer utilities {
+  .filter-green{
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+  }
+  .filter-white {
+    filter: brightness(0) invert(1);
+}
+
+}
+
 body {
   font-family: var(--font-poppins), sans-serif; /* Use Poppins as the default font */
 }

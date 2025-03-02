@@ -60,7 +60,7 @@ const ChatBotUi: React.FC = () => {
       {/* Chat Button */}
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 bg-gray-900 hover:bg-gray-800 text-white rounded-full flex items-center justify-center shadow-lg border border-gray-700 transition-all duration-300"
+        className="w-14 h-14 bg-white/20 backdrop-blur-sm border border-gray-200 dark:border-neutral-800  text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300"
         aria-label={isOpen ? "Close chat" : "Open chat"}
       >
         {isOpen ? (
@@ -79,7 +79,7 @@ const ChatBotUi: React.FC = () => {
       {isOpen && (
         <div className="absolute bottom-16 right-0 w-[90vw] sm:w-[30rem] h-[32rem] bg-gray-900 rounded-lg shadow-xl border border-gray-700 flex flex-col overflow-hidden transition-all duration-300">
           {/* Chat Header */}
-          <div className="p-3 bg-gray-800 border-b border-gray-700 flex justify-between items-center">
+          <div className="p-3 bg-black border-b border-gray-700 flex justify-between items-center">
             <div className="flex items-center">
               <div className="w-2 h-2 rounded-full bg-green-400 mr-2"></div>
               <h3 className="text-white font-medium">Samay's Assistant</h3>
@@ -97,7 +97,7 @@ const ChatBotUi: React.FC = () => {
           </div>
           
           {/* Messages Container - Hidden Scrollbar */}
-          <div className="flex-1 p-4 overflow-y-auto bg-gray-900" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+          <div className="flex-1 p-4 overflow-y-auto bg-black" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
             <style>
               {`
                 .scrollbar-hide::-webkit-scrollbar {
@@ -114,8 +114,8 @@ const ChatBotUi: React.FC = () => {
                   <div 
                     className={`max-w-3/4 p-3 rounded-lg ${
                       message.role === "user" 
-                        ? "bg-blue-600 text-white rounded-br-none" 
-                        : "bg-gray-800 text-gray-100 rounded-bl-none"
+                        ? "bg-white/20 text-white rounded-br-none" 
+                        : "bg-white/10 text-gray-100 rounded-bl-none"
                     }`}
                   >
                     <span className="block text-sm font-bold mb-1">
@@ -130,18 +130,18 @@ const ChatBotUi: React.FC = () => {
           </div>
 
           {/* Input Box and Send Button */}
-          <form onSubmit={handleOnClick} className="p-3 bg-gray-800 border-t border-gray-700 flex items-center">
+          <form onSubmit={handleOnClick} className="p-3 bg-black border-t border-gray-700 flex items-center">
             <input
               type="text"
               value={typedMessage}
               onChange={(e) => setTypedMessage(e.target.value)}
               placeholder="Type a message..."
-              className="flex-1 p-2 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="flex-1 p-2 bg-white/20 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               disabled={isLoading}
             />
             <button
               type="submit"
-              className="ml-2 p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="ml-2 p-2 bg-white/20 text-white rounded-lg hover:bg-black focus:outline-none focus:ring-2 focus:ring-blue-500"
               disabled={isLoading}
             >
               {isLoading ? (

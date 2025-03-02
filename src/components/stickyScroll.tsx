@@ -23,9 +23,9 @@ const content = [
     ),
   },
   {
-    title: "Hackathon",
-    subHeading: "Stay updated instantly",
-    timeFrame: "Jul 2024 - Oct 2024",
+    title: "Hackathons",
+    subHeading: "The Art of Building Under Pressure",
+    // timeFrame: "Jul 2024 - Oct 2024",
     description:
       " Qualified for the final rounds of multiple hackathons, building innovative solutions under tight deadlines and high-pressure environments.",
     content: (
@@ -45,7 +45,7 @@ const content = [
     subHeading: "Chandigarh University",
     timeFrame: "Aug 2021 - June 2025",
     description:
-      "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates.",
+      "Pursuing a Bachelor of Engineering, set to graduate in May 2025. Gained strong technical skills through coursework and hands-on projects, focusing on full-stack development, cloud computing, and AI.",
     content: (
       <div className="h-full w-full flex items-center justify-center text-white">
         <Image
@@ -61,7 +61,7 @@ const content = [
   {
     title: "Linux & Open Source",
     subHeading: "Never run out of ideas",
-    timeFrame: "Jan 2025 - Apr 2025",
+    // timeFrame: "Jan 2025 - Apr 2025",
     description:
       " Passionate about Linux and open-source technologies, always exploring new tools, optimizations, and ways to enhance development workflows.",
     content: (

@@ -57,7 +57,7 @@ export default function ContactForm() {
       {/* Contact Form Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-12 h-12 bg-gray-900 hover:bg-gray-800 text-white rounded-full flex items-center justify-center shadow-lg border border-gray-700 transition-all duration-300"
+        className="w-12 h-12 bg-white/20 backdrop-blur-sm border border-gray-200 dark:border-neutral-800 text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300"
         aria-label={isOpen ? "Close contact form" : "Open contact form"}
       >
         {isOpen ? (
@@ -75,7 +75,7 @@ export default function ContactForm() {
       {/* Contact Form Modal */}
       {isOpen && (
         <div className="absolute bottom-16 left-0 w-[90vw] sm:w-96 bg-gray-900 rounded-lg shadow-xl border border-gray-700 transition-all duration-300">
-          <div className="p-3 bg-gray-800 border-b border-gray-700 flex justify-between items-center">
+          <div className="p-3 bg-black border-b border-gray-700 flex justify-between items-center">
             <h3 className="text-white font-medium">Let's Connect</h3>
             <button onClick={() => setIsOpen(false)} className="text-gray-400 hover:text-gray-200" aria-label="Close contact form">
               <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -85,7 +85,7 @@ export default function ContactForm() {
             </button>
           </div>
 
-          <div className="flex-1 p-4 overflow-y-auto bg-gray-900">
+          <div className="flex-1 p-4 overflow-y-auto bg-black">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-white">Name</label>
@@ -95,7 +95,7 @@ export default function ContactForm() {
                   placeholder="Enter your name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full p-2 bg-gray-700 text-white placeholder-gray-400 rounded-lg outline-none"
+                  className="w-full p-2 bg-white/20 text-white placeholder-gray-400 rounded-lg outline-none"
                   required
                 />
               </div>
@@ -107,7 +107,7 @@ export default function ContactForm() {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full p-2 bg-gray-700 text-white placeholder-gray-400 rounded-lg outline-none"
+                  className="w-full p-2 bg-white/20 text-white placeholder-gray-400 rounded-lg outline-none"
                   required
                 />
               </div>
@@ -118,7 +118,7 @@ export default function ContactForm() {
                   placeholder="Type your message here..."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full p-2 bg-gray-700 text-white placeholder-gray-400 rounded-lg outline-none"
+                  className="w-full p-2 bg-white/20 text-white placeholder-gray-400 rounded-lg outline-none"
                   required
                 />
               </div>
@@ -126,8 +126,8 @@ export default function ContactForm() {
                 type="submit"
                 className={`w-full p-2 transition-colors duration-300 text-white ${
                   isSubmitted || buttonText === "Submitting..."
-                    ? "bg-blue-500 opacity-50 cursor-not-allowed"
-                    : "bg-blue-600 hover:bg-blue-700"
+                    ? "bg-white/20 opacity-50 cursor-not-allowed"
+                    : "bg-white/20 hover:bg-black"
                 }`}
                 disabled={isSubmitted || buttonText === "Submitting..."}
               >

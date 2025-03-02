@@ -6,7 +6,7 @@ import ProjectsSection from "@/components/projects";
 import {StickyScrollRevealDemo} from "@/components/stickyScroll";
 import {FloatingDockDemo} from "@/components/dock";
 import FixedIcons from "@/components/fixedIcons";
-import {TechStackShowcase} from "@/components/hoverCard";
+import Skills from "@/components/logoCards";
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
       <SpotlightNewDemo />
       <StickyScrollRevealDemo />
       <ProjectsSection />
-      <TechStackShowcase />
+      <Skills />
       <FixedIcons />
       <FloatingDockDemo />
     </div>
