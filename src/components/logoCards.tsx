@@ -1,6 +1,6 @@
 export default function Skills() {
   return (
-    <section className="bg-background py-16 bg-black text-white min-h-screen flex flex-col items-center justify-start">
+    <section id="skills-section" className="bg-background py-16 bg-black text-white min-h-screen flex flex-col items-center justify-start">
       <div className="w-full max-w-6xl mx-auto text-center mb-12">
         <h1 className="text-4xl md:text-5xl sm:text-3xl font-bold text-white">
           Skills
