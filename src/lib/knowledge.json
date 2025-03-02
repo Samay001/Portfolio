@@ -1,68 +1,81 @@
 {
-  "about": "Samay is a passionate full-stack developer, set to graduate in 2025, and an immediate joiner. He has a strong foundation in web development, cloud computing, and problem-solving, always eager to learn and innovate.",
-  
+  "personalInfo": {
+    "name": "Samay Rathod",
+    "title": "Software Developer",
+    "email": "samayrathod1@gmail.com",
+    "phone": "+91 8839796443",
+    "location": "Mohali, Punjab, India",
+    "linkedin": "https://www.linkedin.com/in/samayrathod/",
+    "github": "https://github.com/Samay001",
+    "portfolio": "https://samayrathod.netlify.app/",
+    "leetcode": "https://leetcode.com/samayrathod1/",
+    "summary": "Samay is a passionate full-stack developer, set to graduate in 2025, and an immediate joiner. He has a strong foundation in web development, cloud computing, and problem-solving, always eager to learn and innovate. Samay is seeking opportunities to work on challenging projects and contribute to the tech industry."
+  },
+
   "skills": [
-    "React.js", 
-    "Next.js", 
-    "TypeScript", 
-    "Node.js", 
-    "Express", 
-    "MongoDB", 
-    "Mysql", 
-    "Kubernetes", 
-    "Tailwind CSS", 
-    "Responsive Design", 
-    "RESTful APIs",
-    "Git",
-    "Docker"
+    {
+      "category": "Programming Languages",
+      "items": ["JavaScript", "C++", "Java", "Typescript"]
+    },
+    {
+      "category": "Frameworks & Libraries",
+      "items": ["React", "Node.js", "Express", "Next.js", "TailwindCSS"]
+    },
+    {
+      "category": "Tools & Platforms",
+      "items": ["Git", "AWS", "Docker", "Firebase"]
+    }
   ],
   
   "projects": [
     {
       "title": "Urban Snitch",
       "description": "A full-stack web platform focused on customer safety, featuring secure password hashing and a seamless payment gateway for transactions.",
-      "technologies": ["React.js", "JavaScript", "MongoDB", "Stripe API", "Tailwind CSS"],
-      "link": "https://github.com/Samay001/urbansnitch"
+      "technologies": ["React", "Node.js","Express", "MongoDB"],
+      "github": "https://github.com/Samay001/urbansnitch"
     },
     {
       "title": "Load Balancer with Kubernetes & Docker",
       "description": "A project demonstrating containerized load balancing using Kubernetes and Docker, enabling automatic scaling and high availability across multiple server instances.",
       "technologies": ["React.js", "JavaScript", "Node.js", "Express", "Docker", "Kubernetes"],
-      "link": "https://github.com/Samay001/conscious-chemist"
-    },
-    {
-      "title": "Conscious Chemist",
-      "description": "A skincare e-commerce website built with ReactJS, offering a responsive and visually appealing interface for browsing and purchasing skincare products.",
-      "technologies": ["React.js", "JavaScript", "Tailwind CSS"],
-      "link": "https://github.com/Samay001/Load-Balancer-Round-Robin-Algorithm"
+      "github": "https://github.com/Samay001/conscious-chemist"
     }
   ],
-  
   "experience": [
     {
       "company": "Boost Star Expert.",
-      "role": "Website Developer",
+      "position": "Website Developer",
       "duration": "June-2024-Aug-2024",
-      "description": "Lead developer for the company's client-facing web applications. Implemented modern React patterns and optimized performance across the platform."
+      "description": "Description of your role and responsibilities.",
+      "achievements": [
+        "Top performering Intern of batch"
+      ]
     }
   ],
-  
   "education": [
     {
       "institution": "Chandigarh University",
       "degree": "B.E in Computer Science",
+      "field": "Computer Science",
       "year": "2021-2025"
-    },
-    {
-      "institution": "Ryan International School",
-      "degree": "Mathematics",
-      "year": "2020-2021"
     }
   ],
-  
-  "contact": {
-    "email": "samayrathod1@gmail.com",
-    "linkedin": "https://www.linkedin.com/in/samayrathod/",
-    "github": "https://github.com/Samay001"
-  }
+  "Achievements": [
+    {
+      "name": "Dark Patterns Buster Hackathon in university",
+      "position": "Finalist",
+      "date": "2024"
+    },
+    {
+      "name": "Think-tank hackathon",
+      "position": "Finalist",
+      "date": "2023"
+    },
+    {
+      "name": "Research paper on frostbite detection using machine learning techniques",
+      "position": "Published",
+      "date": "2024",
+      "link": "https://ieeexplore.ieee.org/document/10690821"
+    }
+  ]
 }

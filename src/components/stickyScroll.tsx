@@ -67,7 +67,7 @@ const content = [
     content: (
       <div className="h-full w-full flex items-center justify-center text-white">
         <Image
-          src="https://private-user-images.githubusercontent.com/121441938/402524915-d9a38f30-7497-44d3-b1c3-af76405791c4.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDAyMzAyMjYsIm5iZiI6MTc0MDIyOTkyNiwicGF0aCI6Ii8xMjE0NDE5MzgvNDAyNTI0OTE1LWQ5YTM4ZjMwLTc0OTctNDRkMy1iMWMzLWFmNzY0MDU3OTFjNC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMjIyJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDIyMlQxMzEyMDZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wZmVmMmE4YjlmMzZlNGI3YjcxNWU1YzU5MGQ4MjVjZDNhNjdmMzdiNzA0MGY3OTI2MzVmNGJkMTgxMjMxNDUwJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.S9p6cC-G8Ggb5NTUy7L60ZIbj_ebppRX3bv_nFXIgOA"
+          src="/linux.png"
           width={300}
           height={300}
           className="h-full w-full object-cover"

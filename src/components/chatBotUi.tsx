@@ -1,88 +1,58 @@
-import React, { useState, useRef, useEffect } from 'react';
+'use client';
 
-// Types
+import { useState, useEffect, useRef } from "react";
+import axios from "axios";
+import ReactMarkdown from "react-markdown";
+
 interface Message {
-  id: string;
-  content: string;
-  sender: 'user' | 'bot';
-  timestamp: Date;
+  id: number;
+  role: "bot" | "user";
+  message: string;
 }
 
-const ChatBot: React.FC = () => {
+const ChatBotUi: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [input, setInput] = useState<string>('');
+  const [typedMessage, setTypedMessage] = useState<string>("");
   const [messages, setMessages] = useState<Message[]>([
-    {
-      id: '1',
-      content: "Hi there! I'm your Samay's assistant.",
-      sender: 'bot',
-      timestamp: new Date()
-    }
+    { id: 1, role: "bot", message: "**Hello!** 🤖 How can I assist you today?" },
   ]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll to the bottom of messages
+  // Auto-scroll to latest message
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  // Add a message to the chat
-  const addMessage = (content: string, sender: 'user' | 'bot') => {
-    const newMessage: Message = {
-      id: Date.now().toString(),
-      content,
-      sender,
-      timestamp: new Date()
-    };
-    
-    setMessages(prev => [...prev, newMessage]);
-    return newMessage;
-  };
+  const handleOnClick = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!typedMessage.trim()) return;
 
-  // Send message to API
-  const sendMessage = async (userInput: string) => {
-    if (!userInput.trim()) return;
-    
-    // Add user message
-    addMessage(userInput, 'user');
+    const userMessage: Message = { id: messages.length + 1, role: "user", message: typedMessage };
+    setMessages((prevMessages) => [...prevMessages, userMessage]);
     setIsLoading(true);
-    
+
     try {
-      // Call the API endpoint
-      const response = await fetch('/api/chatbot', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ message: userInput }),
+      const response = await axios.post("/api/chatbot", {
+        prompt: typedMessage,
       });
-      
-      const data = await response.json();
-      
-      if (response.ok) {
-        // Add the bot's response
-        addMessage(data.message.content, 'bot');
-      } else {
-        // Handle error
-        console.error('API error:', data.error);
-        addMessage('Sorry, I encountered an error. Please try again.', 'bot');
-      }
+
+      const botMessage: Message = {
+        id: messages.length + 2,
+        role: "bot",
+        message: response.data.text,
+      };
+      setMessages((prevMessages) => [...prevMessages, botMessage]);
     } catch (err) {
-      console.error('Error sending message:', err);
-      addMessage('Sorry, I couldn\'t connect to the server. Please try again.', 'bot');
+      console.error("Error calling API:", err);
+      setMessages((prevMessages) => [...prevMessages, {
+        id: messages.length + 2, role: "bot", message: "**Oops!** Something went wrong. Please try again."
+      }]);
     } finally {
       setIsLoading(false);
     }
-  };
 
-  // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!input.trim()) return;
-    sendMessage(input);
-    setInput('');
+    setTypedMessage("");
   };
 
   return (
@@ -90,7 +60,7 @@ const ChatBot: React.FC = () => {
       {/* Chat Button */}
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="w-12 h-12 bg-gray-900 hover:bg-gray-800 text-white rounded-full flex items-center justify-center shadow-lg border border-gray-700 transition-all duration-300"
+        className="w-14 h-14 bg-gray-900 hover:bg-gray-800 text-white rounded-full flex items-center justify-center shadow-lg border border-gray-700 transition-all duration-300"
         aria-label={isOpen ? "Close chat" : "Open chat"}
       >
         {isOpen ? (
@@ -100,14 +70,14 @@ const ChatBot: React.FC = () => {
           </svg>
         ) : (
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            <path d="M12 2C7.03 2 3 6.03 3 11c0 2.6 1.08 4.96 2.83 6.65l-.68 2.75a1 1 0 0 0 1.23 1.23l2.75-.68A9.01 9.01 0 0 0 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9z"></path>
           </svg>
         )}
       </button>
       
       {/* Chat Window */}
       {isOpen && (
-        <div className="absolute bottom-16 right-0 w-[90vw] sm:w-96 h-[70vh] max-h-[80vh] bg-gray-900 rounded-lg shadow-xl border border-gray-700 flex flex-col overflow-hidden transition-all duration-300">
+        <div className="absolute bottom-16 right-0 w-[90vw] sm:w-[30rem] h-[32rem] bg-gray-900 rounded-lg shadow-xl border border-gray-700 flex flex-col overflow-hidden transition-all duration-300">
           {/* Chat Header */}
           <div className="p-3 bg-gray-800 border-b border-gray-700 flex justify-between items-center">
             <div className="flex items-center">
@@ -126,62 +96,66 @@ const ChatBot: React.FC = () => {
             </button>
           </div>
           
-          {/* Messages Container */}
-          <div className="flex-1 p-4 overflow-y-auto bg-gray-900">
-            {messages.map((message) => (
-              <div 
-                key={message.id} 
-                className={`mb-4 flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-              >
+          {/* Messages Container - Hidden Scrollbar */}
+          <div className="flex-1 p-4 overflow-y-auto bg-gray-900" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            <style>
+              {`
+                .scrollbar-hide::-webkit-scrollbar {
+                  display: none;
+                }
+              `}
+            </style>
+            <div className="scrollbar-hide">
+              {messages.map((message) => (
                 <div 
-                  className={`max-w-3/4 p-3 rounded-lg ${
-                    message.sender === 'user' 
-                      ? 'bg-blue-600 text-white rounded-br-none' 
-                      : 'bg-gray-800 text-gray-100 rounded-bl-none'
-                  }`}
+                  key={message.id} 
+                  className={`mb-4 flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
                 >
-                  {message.content}
+                  <div 
+                    className={`max-w-3/4 p-3 rounded-lg ${
+                      message.role === "user" 
+                        ? "bg-blue-600 text-white rounded-br-none" 
+                        : "bg-gray-800 text-gray-100 rounded-bl-none"
+                    }`}
+                  >
+                    <span className="block text-sm font-bold mb-1">
+                      {message.role === "bot" ? "Bot" : "You"}
+                    </span>
+                    <ReactMarkdown>{message.message}</ReactMarkdown>
+                  </div>
                 </div>
-              </div>
-            ))}
-            {isLoading && (
-              <div className="flex justify-start mb-4">
-                <div className="bg-gray-800 text-white p-3 rounded-lg rounded-bl-none flex space-x-1">
-                  <span className="animate-bounce">●</span>
-                  <span className="animate-bounce" style={{ animationDelay: '0.2s' }}>●</span>
-                  <span className="animate-bounce" style={{ animationDelay: '0.4s' }}>●</span>
-                </div>
-              </div>
-            )}
-            <div ref={messagesEndRef} />
+              ))}
+              <div ref={messagesEndRef} />
+            </div>
           </div>
-          
-          {/* Input Form */}
-          <form onSubmit={handleSubmit} className="p-3 bg-gray-800 border-t border-gray-700">
-            <div className="flex rounded-lg overflow-hidden">
-              <input
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask me about the portfolio..."
-                className="flex-1 p-2 outline-none bg-gray-700 text-white placeholder-gray-400"
-                disabled={isLoading}
-              />
-              <button 
-                type="submit"
-                className={`px-2 py-2 transition-colors duration-300 text-white ${
-                  isLoading || !input.trim() 
-                    ? 'bg-blue-500 opacity-50 cursor-not-allowed' 
-                    : 'bg-blue-600 hover:bg-blue-700'
-                }`}
-                disabled={isLoading || !input.trim()}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+
+          {/* Input Box and Send Button */}
+          <form onSubmit={handleOnClick} className="p-3 bg-gray-800 border-t border-gray-700 flex items-center">
+            <input
+              type="text"
+              value={typedMessage}
+              onChange={(e) => setTypedMessage(e.target.value)}
+              placeholder="Type a message..."
+              className="flex-1 p-2 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              disabled={isLoading}
+            />
+            <button
+              type="submit"
+              className="ml-2 p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              disabled={isLoading}
+            >
+              {isLoading ? (
+                <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="22" y1="2" x2="11" y2="13"></line>
                   <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                 </svg>
-              </button>
-            </div>
+              )}
+            </button>
           </form>
         </div>
       )}
@@ -189,4 +163,4 @@ const ChatBot: React.FC = () => {
   );
 };
 
-export default ChatBot;
+export default ChatBotUi;
