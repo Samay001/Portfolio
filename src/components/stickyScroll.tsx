@@ -31,7 +31,7 @@ const content = [
     content: (
       <div className="h-full w-full flex items-center justify-center text-white">
         <Image
-          src="https://media.licdn.com/dms/image/v2/D5622AQFmJAocPzt5vg/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1679739389439?e=1743033600&v=beta&t=9leYaFAr0W-tJcp9QyVaMdU8dMqce32TpwBsxB8hjiM"
+          src="/hackathon.jpeg"
           width={300}
           height={300}
           className="h-full w-full object-cover"

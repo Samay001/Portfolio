@@ -46,7 +46,7 @@ export default function ProjectsSection() {
       </div>
 
       {/* Project List */}
-      <div className="w-full max-w-5xl mx-auto space-y-16">
+      <div className="w-full max-w-4xl mx-auto space-y-16">
         {projects.map((project, index) => (
           <div
             key={index}
@@ -64,14 +64,17 @@ export default function ProjectsSection() {
 
             {/* Project Video */}
             <div className="flex-1 relative w-full md:w-1/2 aspect-video rounded-lg overflow-hidden shadow-md">
-              <Link href={project.live} target="_blank" rel="noopener noreferrer">
+              <Link
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <video
                   src={project.videoUrl}
                   className="w-full h-full object-cover rounded-lg"
                   muted
                   loop
                   playsInline
-                  autoPlay
                   onMouseEnter={(e) => e.currentTarget.play()}
                   onMouseLeave={(e) => e.currentTarget.pause()}
                 />

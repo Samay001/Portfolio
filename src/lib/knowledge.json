@@ -1,15 +1,15 @@
 {
   "personalInfo": {
     "name": "Samay Rathod",
-    "title": "Software Developer",
+    "title": "Software Engineer",
     "email": "samayrathod1@gmail.com",
     "phone": "+91 8839796443",
     "location": "Mohali, Punjab, India",
     "linkedin": "https://www.linkedin.com/in/samayrathod/",
     "github": "https://github.com/Samay001",
-    "portfolio": "https://samayrathod.netlify.app/",
+    "portfolio": "https://samayrathod1.vercel.app/",
     "leetcode": "https://leetcode.com/samayrathod1/",
-    "summary": "Samay is a passionate full-stack developer, set to graduate in 2025, and an immediate joiner. He has a strong foundation in web development, cloud computing, and problem-solving, always eager to learn and innovate. Samay is seeking opportunities to work on challenging projects and contribute to the tech industry."
+    "summary": "Samay is a passionate Backend Developer, set to graduate in 2025, and an immediate joiner. He has a strong foundation in web development, cloud computing, and problem-solving, always eager to learn and innovate. Samay is seeking opportunities to work on challenging projects and contribute to the tech industry."
   },
 
   "skills": [
@@ -29,6 +29,12 @@
   
   "projects": [
     {
+      "title": "Wealth One",
+      "description": "A unified platform to analyze all investment funds with ai",
+      "technologies": ["React", "Spring Boot", "MongoDB"],
+      "github": "https://github.com/Samay001/WealthOne"
+    },
+    {
       "title": "Urban Snitch",
       "description": "A full-stack web platform focused on customer safety, featuring secure password hashing and a seamless payment gateway for transactions.",
       "technologies": ["React", "Node.js","Express", "MongoDB"],
@@ -38,13 +44,19 @@
       "title": "Load Balancer with Kubernetes & Docker",
       "description": "A project demonstrating containerized load balancing using Kubernetes and Docker, enabling automatic scaling and high availability across multiple server instances.",
       "technologies": ["React.js", "JavaScript", "Node.js", "Express", "Docker", "Kubernetes"],
-      "github": "https://github.com/Samay001/conscious-chemist"
+      "github": "https://github.com/Samay001/Load-Balancer-Round-Robin-Algorithm"
     }
   ],
   "experience": [
     {
+      "company": "Sarvm.ai.",
+      "position": "Backend Developer Intern",
+      "duration": "Mar-2025-Present",
+      "description": "Description of your role and responsibilities."
+    },
+    {
       "company": "Boost Star Expert.",
-      "position": "Website Developer",
+      "position": "Website Developer Intern",
       "duration": "June-2024-Aug-2024",
       "description": "Description of your role and responsibilities.",
       "achievements": [
