@@ -26,13 +26,13 @@ function Navbar({ className }: { className?: string }) {
           </div>
 
           <div className="flex items-center space-x-6">
-            <Link href="#about-section">
+            <Link href="about-section">
               <MenuItem setActive={setActive} active={active} item="About" />
             </Link>
-            <Link href="#project-section">
+            <Link href="project-section">
               <MenuItem setActive={setActive} active={active} item="Projects" />
             </Link>
-            <Link href="#skills-section">
+            <Link href="skills-section">
               <MenuItem setActive={setActive} active={active} item="Skills" />
             </Link>
           </div>
