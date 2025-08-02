@@ -35,7 +35,7 @@ export function FloatingDockDemo() {
       icon: (
         <IconFileText className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "https://drive.google.com/drive/folders/1N4IhPTaAGa6-BB3wwqfD4rFSzVc59ul6",
+      href: "https://drive.google.com/file/d/1aTbR0H2P_linlshxsjqDlypAoqwDcUjr/view?usp=drive_link",
     },
   ];
 
