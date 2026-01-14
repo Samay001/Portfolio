@@ -1,4 +1,3 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextResponse } from "next/server";
 import portfolioContext from "@/lib/knowledge.json" assert { type: "json" };
 
@@ -6,9 +5,6 @@ const geminiApiKey = process.env.GEMINI_API_KEY;
 if (!geminiApiKey) {
   throw new Error("GEMINI_API_KEY is not defined in the environment variables");
 }
-
-const googleAI = new GoogleGenerativeAI(geminiApiKey);
-const geminiModel = googleAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
 export async function POST(req: Request) {
   try {
@@ -36,9 +32,37 @@ export async function POST(req: Request) {
       **Response:** (Generate a well-structured, formatted answer)
     `;
 
-    const result = await geminiModel.generateContent(contextualPrompt);
-    const response = result.response;
-    return NextResponse.json({ text: response.text() });
+    const requestBody = {
+      contents: [
+        {
+          parts: [
+            {
+              text: contextualPrompt
+            }
+          ]
+        }
+      ]
+    };
+
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${geminiApiKey}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`API request failed with status ${response.status}`);
+    }
+
+    const data = await response.json();
+    const text = data.candidates[0].content.parts[0].text;
+    
+    return NextResponse.json({ text });
   } 
   catch (error) {
     console.error("Error generating content:", error);
