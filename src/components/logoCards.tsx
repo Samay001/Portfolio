@@ -75,9 +75,9 @@ export default function Skills() {
             width="auto"
           />
           <img
-            className="h-5 w-fit dark:invert"
-            src="https://html.tailus.io/blocks/customers/tailwindcss.svg"
-            alt="Vercel Logo"
+            className="h-20 w-fit filter-white"
+            src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-ar21.svg"
+            alt="Tailwind CSS Logo"
             height="20"
             width="auto"
           />

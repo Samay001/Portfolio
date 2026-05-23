@@ -1,43 +1,58 @@
 {
   "personalInfo": {
     "name": "Samay Rathod",
-    "title": "Software Engineer",
+    "title": "SWE @Edmo | Hackathon Winner | Ex: Backend Intern @SarvM.AI | Full-Stack Developer | Researcher in AI & ML | Open to Opportunities",
     "email": "samayrathod1@gmail.com",
     "phone": "+91 8839796443",
-    "location": "Mohali, Punjab, India",
+    "location": "Noida, Uttar Pradesh, India",
     "linkedin": "https://www.linkedin.com/in/samayrathod/",
     "github": "https://github.com/Samay001",
     "portfolio": "https://samayrathod1.vercel.app/",
     "leetcode": "https://leetcode.com/samayrathod1/",
-    "summary": "Samay is a passionate Backend Developer, set to graduate in 2025, and an immediate joiner. He has a strong foundation in web development, cloud computing, and problem-solving, always eager to learn and innovate. Samay is seeking opportunities to work on challenging projects and contribute to the tech industry."
+    "summary": "Computer Science graduate from Chandigarh University currently working as a Junior Software Engineer at EDMO, with prior internship experience as an SDE Intern at iSchoolConnect and a Backend Intern at SarvM.AI. Specializes in building scalable backend systems, designing AI-powered chatbots, and creating responsive full-stack web applications. Strong foundation in Node.js, Spring Boot, and modern frameworks like Next.js, driven by a passion for solving real-world problems through innovative technology. Thrives in fast-paced, collaborative environments and enjoys tackling challenging projects that push technical and creative boundaries. Open to full-time opportunities."
   },
+
+  "topSkills": ["Kubernetes", "Python", "Design"],
 
   "skills": [
     {
       "category": "Programming Languages",
-      "items": ["JavaScript", "C++", "Java", "Typescript"]
+      "items": ["JavaScript", "TypeScript", "Python", "Java", "C++"]
     },
     {
       "category": "Frameworks & Libraries",
-      "items": ["React", "Node.js", "Express", "Next.js", "TailwindCSS"]
+      "items": ["Next.js", "React", "Node.js", "Express", "Nest.js", "Spring Boot", "TailwindCSS"]
     },
     {
-      "category": "Tools & Platforms",
-      "items": ["Git", "AWS", "Docker", "Firebase"]
+      "category": "Databases & Search",
+      "items": ["MongoDB", "MySQL", "Elasticsearch"]
+    },
+    {
+      "category": "Cloud, DevOps & Tools",
+      "items": ["AWS", "Google Cloud Storage", "Docker", "Kubernetes", "Apache Kafka", "Firebase", "Git"]
+    },
+    {
+      "category": "AI / ML",
+      "items": ["OpenAI GPT-4o-mini", "ChatGPT-4.0", "Vapi", "OCR", "Human-in-the-Loop (HIL)", "Beautiful Soup"]
     }
   ],
-  
+
+  "certifications": [
+    "Introduction to Blockchain Technologies",
+    "Deploy a Web Application in Azure Kubernetes Service"
+  ],
+
   "projects": [
     {
       "title": "Wealth One",
-      "description": "A unified platform to analyze all investment funds with ai",
+      "description": "A unified platform to analyze all investment funds with AI.",
       "technologies": ["React", "Spring Boot", "MongoDB"],
       "github": "https://github.com/Samay001/WealthOne"
     },
     {
       "title": "Urban Snitch",
       "description": "A full-stack web platform focused on customer safety, featuring secure password hashing and a seamless payment gateway for transactions.",
-      "technologies": ["React", "Node.js","Express", "MongoDB"],
+      "technologies": ["React", "Node.js", "Express", "MongoDB"],
       "github": "https://github.com/Samay001/urbansnitch"
     },
     {
@@ -47,45 +62,86 @@
       "github": "https://github.com/Samay001/Load-Balancer-Round-Robin-Algorithm"
     }
   ],
+
   "experience": [
     {
-      "company": "Sarvm.ai.",
-      "position": "Backend Developer Intern",
-      "duration": "Mar-2025-Present",
-      "description": "Description of your role and responsibilities."
+      "company": "EDMO",
+      "totalDuration": "1 year 1 month",
+      "location": "Noida",
+      "roles": [
+        {
+          "position": "Junior Software Engineer",
+          "duration": "November 2025 - Present (7 months)",
+          "highlights": [
+            "Collaborated with a team of four interns to develop an AI-powered interviewing application for iSchoolConnect's hackathon, winning 1st place with a $50K prize; utilized Next.js, Nest.js, MongoDB, OpenAI GPT-4o-mini, and Vapi to implement flexible scheduling, smart question generation from resumes/custom inputs, parsing for insights, user dashboards, and instant feedback emails, streamlining hiring with AI automation and enhanced user experience.",
+            "Developed an automated GPA Calculation System for Rowan University that fetches and processes transcripts via OCR and Human-in-the-Loop validation. Configured admin dashboards to compute accurate GPAs, reducing manual processing time by 80% and successfully handling 1000+ transcripts per admission cycle in production.",
+            "Engineered National University's automated Transfer Credit Evaluation (TCE) pipeline utilizing OCR and AI models to map prior course credits with confidence scoring. Integrated a generic HIL workflow to validate confidence scores, accelerating the evaluation process by 3x and ensuring 99% data integrity for final admission reports.",
+            "Built an AI-driven Interview Analyzer with smart scheduling and question generation. Engineered a fault-tolerant upload service using Apache Kafka to orchestrate the storage of large video files in Google Cloud Storage, decoupling the user interface from backend processing to ensure seamless performance."
+          ]
+        },
+        {
+          "position": "Software Engineer Intern",
+          "duration": "May 2025 - October 2025 (6 months)",
+          "highlights": []
+        }
+      ]
     },
     {
-      "company": "Boost Star Expert.",
-      "position": "Website Developer Intern",
-      "duration": "June-2024-Aug-2024",
-      "description": "Description of your role and responsibilities.",
-      "achievements": [
-        "Top performering Intern of batch"
+      "company": "iSchoolConnect",
+      "position": "Software Engineer Intern",
+      "duration": "May 2025 - October 2025 (6 months)",
+      "location": "Noida",
+      "highlights": [
+        "Developed an AI chatbot named Violet for NYU scholars using the ChatGPT-4.0 model, with a custom knowledge base built via data extraction using Beautiful Soup. Designed contextual welcome flows and implemented session and room logic to manage message history and improve user interaction.",
+        "Improved SEO performance by optimizing frontend performance metrics, reducing Largest Contentful Paint (LCP) from an average of 7.5s to 2.44s, leading to faster load times and better user experience."
+      ]
+    },
+    {
+      "company": "SarvM.AI",
+      "position": "Backend Intern",
+      "duration": "March 2025 - May 2025 (3 months)",
+      "location": "Remote",
+      "highlights": [
+        "Designed and implemented a cron scheduler to dynamically update retailer shop ratings by calculating the average from master rating, ensuring real-time accuracy and automation in the rating system.",
+        "Developed and optimized a scalable API for updating user subscription details in Elasticsearch, enhancing data consistency, search efficiency, and system performance.",
+        "Created a script to clean and validate shop data in the database by verifying QR scanner entries and filtering based on valid phone numbers and other criteria."
       ]
     }
   ],
+
   "education": [
     {
       "institution": "Chandigarh University",
-      "degree": "B.E in Computer Science",
+      "degree": "Bachelor of Engineering (B.E.) in Computer Science",
       "field": "Computer Science",
-      "year": "2021-2025"
+      "year": "2021 - 2025"
+    },
+    {
+      "institution": "Ryan International School, Raipur",
+      "degree": "Class 12",
+      "year": "2021"
     }
   ],
-  "Achievements": [
+
+  "achievements": [
     {
-      "name": "Dark Patterns Buster Hackathon in university",
+      "name": "iSchoolConnect Hackathon — AI-powered interviewing application",
+      "position": "1st place ($50K prize)",
+      "date": "2025"
+    },
+    {
+      "name": "Dark Patterns Buster Hackathon (university)",
       "position": "Finalist",
       "date": "2024"
     },
     {
-      "name": "Think-tank hackathon",
+      "name": "Think-Tank Hackathon",
       "position": "Finalist",
       "date": "2023"
     },
     {
       "name": "Research paper on frostbite detection using machine learning techniques",
-      "position": "Published",
+      "position": "Published (IEEE)",
       "date": "2024",
       "link": "https://ieeexplore.ieee.org/document/10690821"
     }

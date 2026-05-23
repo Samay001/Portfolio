@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import portfolioContext from "@/lib/knowledge.json" assert { type: "json" };
+import portfolioContext from "@/lib/knowledge.json" with { type: "json" };
 
 const geminiApiKey = process.env.GEMINI_API_KEY;
 if (!geminiApiKey) {

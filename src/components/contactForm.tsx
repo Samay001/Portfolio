@@ -8,6 +8,7 @@ export default function ContactForm() {
   const [buttonText, setButtonText] = useState("Submit");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   interface EmailParams extends Record<string, string> {
     from_name: string;
@@ -18,6 +19,7 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    setErrorMessage("");
     setButtonText("Submitting...");
 
     try {
@@ -27,6 +29,7 @@ export default function ContactForm() {
 
       if (!serviceId || !templateId || !userId) {
         console.error("EmailJS environment variables are missing.");
+        setErrorMessage("Email service is not configured. Please reach out via LinkedIn or GitHub instead.");
         setButtonText("Submit");
         return;
       }
@@ -48,6 +51,7 @@ export default function ContactForm() {
       }, 3000);
     } catch (error) {
       console.error("Email send error:", error);
+      setErrorMessage("Couldn't send your message. Please try again or reach out via LinkedIn.");
       setButtonText("Submit");
     }
   };
@@ -133,6 +137,16 @@ export default function ContactForm() {
               >
                 {buttonText}
               </button>
+              {errorMessage && (
+                <p role="alert" className="text-sm text-red-400 mt-2">
+                  {errorMessage}
+                </p>
+              )}
+              {isSubmitted && (
+                <p role="status" className="text-sm text-green-400 mt-2">
+                  Thanks! Your message was sent.
+                </p>
+              )}
             </form>
           </div>
         </div>
