@@ -10,7 +10,7 @@ export const StickyScroll = ({
   onActiveColorChange,
 }: {
   content: {
-    title: string;
+    title?: string;
     subHeading?: string;
     timeFrame?: string;
     description: string;
@@ -67,14 +67,16 @@ export const StickyScroll = ({
       <div className="relative flex items-start px-4">
         <div className="max-w-2xl">
           {content.map((item, index) => (
-            <div key={item.title + index} className="my-20">
-              <motion.h2
-                initial={{ opacity: 0 }}
-                animate={{ opacity: activeCard === index ? 1 : 0.3 }}
-                className="text-4xl font-bold text-slate-100"
-              >
-                {item.title}
-              </motion.h2>
+            <div key={(item.title ?? item.subHeading ?? "card") + index} className="my-20">
+              {item.title && (
+                <motion.h2
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: activeCard === index ? 1 : 0.3 }}
+                  className="text-4xl font-bold text-slate-100"
+                >
+                  {item.title}
+                </motion.h2>
+              )}
               {item.subHeading && (
                 <motion.h3
                   initial={{ opacity: 0 }}
